@@ -1,3 +1,10 @@
-# install node modules
-sudo npm install grunt  grunt-contrib-coffee  grunt-contrib-jade  grunt-contrib-less  grunt-contrib-stylus  grunt-contrib-uglify grunt-contrib-watch grunt-contrib-cssmin -g
-npm link grunt  grunt-contrib-coffee  grunt-contrib-jade  grunt-contrib-less  grunt-contrib-stylus  grunt-contrib-uglify grunt-contrib-watch grunt-contrib-cssmin
+# install node 
+
+git clone git://github.com/creationix/nvm.git ~/.nvm
+source ~/.nvm/nvm.sh
+# ~/.bashrc -> source ~/.nvm/nvm.sh
+
+nvm install 0.10.10
+nvm use 0.10.10
+
+# END
