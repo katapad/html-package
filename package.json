@@ -1,0 +1,27 @@
+{
+  "name": "html-package",
+  "version": "0.0.1",
+  "description": "html-package as template",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "console.log 'hello:)'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naoiwata/html-package.git"
+  },
+  "keywords": [
+    "html",
+    "grunt",
+    "coffee",
+    "stylus",
+    "jade"
+  ],
+  "author": "naoiwata",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "fa500a7ea6819c4a832d90afea175351e5d44212",
+  "bugs": {
+    "url": "https://github.com/naoiwata/html-package/issues"
+  }
+}
