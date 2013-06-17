@@ -16,11 +16,18 @@
 
 >  $ grunt watch
 
-#### TO DO LIST
+#### run web server on webrick and you can see 'http://localhost:8080/dist/' on dist/index.html file
 
->  -set path which debug or deploy mode   
->  -run http server like as ruby webrick    
->  -add livereload function   
->  -publish as npm module this package  
+>  $ ruby config/server.rb  
+
+
+
+
+### for next version, TO DO LISTs
+
+>  set path which debug or deploy mode   
+>  run http server like as ruby webrick    
+>  add livereload function   
+>  publish as npm module this package  
 
 
