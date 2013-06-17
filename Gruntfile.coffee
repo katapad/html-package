@@ -1,16 +1,22 @@
+###
+Gruntfile.coffee
+@author naoiwata
+###
+
 module.exports = (grunt) ->
-	name = 'scaffold'
-	stylus = {}
-	javascript = {}
-	jsMinified = {}
-	# separate templates for all pages
+	name = 'tmp'
+	_csscompile = {}
+	_jscompile = {}
+	_jsMinified = {}
+
 	jade =
-		'dist/index.html': 'dist/view/index.jade'
-	# styles are compiled to one minified css
-	stylus["dist/css/#{name}.min.css"] = 'src/stylus/blocks.styl'
-	# logic written with coffee is compiled to one js
-	javascript["dist/js/#{name}.js"] = 'src/coffee/**/*.coffee'
-	jsMinified["dist/js/#{name}.min.js"] = ["dist/js/#{name}.js"]
+		'debug/index.html': 'debug/view/index.jade'
+
+	_csscompile["debug/css/#{name}.min.css"] = 'src/stylus/blocks.styl'
+	_csscompile["deploy/css/#{name}.min.css"] = 'src/stylus/blocks.styl'
+
+	_jscompile["debug/js/#{name}.js"] = 'src/coffee/**/*.coffee'
+	_jsMinified["deploy/js/#{name}.min.js"] = ["debug/js/#{name}.js"]
 
 	grunt.initConfig 
 		pkg: grunt.file.readJSON 'package.json'
@@ -23,13 +29,13 @@ module.exports = (grunt) ->
 						projectName: name
 		stylus:
 			compile:
-				files: stylus
+				files: _csscompile
 		coffee:
 			compile:
-				files: javascript
+				files: _jscompile
 		uglify:
 			javascript:
-				files: jsMinified
+				files: _jsMinified
 		watch:
 			jade:
 				files: 'src/view/**/*.jade'
@@ -38,13 +44,20 @@ module.exports = (grunt) ->
 				files: 'src/stylus/**/*.stylus'
 				tasks: 'stylus'
 			coffee:
-				files: 'coffee/**/*.coffee'
+				files: 'src/coffee/**/*.coffee'
 				tasks: 'coffee uglify'
 
-	grunt.loadNpmTasks 'grunt-contrib-jade'
-	grunt.loadNpmTasks 'grunt-contrib-stylus'
-	grunt.loadNpmTasks 'grunt-contrib-coffee'
-	grunt.loadNpmTasks 'grunt-contrib-uglify'
-	grunt.loadNpmTasks 'grunt-contrib-watch'
+	plugins = [
+		"grunt-contrib-jade"
+		"grunt-contrib-stylus"
+		"grunt-contrib-coffee"
+		"grunt-contrib-uglify"
+		"grunt-contrib-watch"
+		"grunt-contrib-cssmin"
+	].forEach (plugin)->
+		grunt.loadNpmTasks(plugin)
 
-	grunt.registerTask 'default', ['jade', 'stylus', 'coffee', 'uglify']
+	grunt.registerTask 'default', ['jade', 'stylus', 'coffee']
+	grunt.registerTask 'deploy', ['jade', 'stylus', 'coffee', 'uglify']
+
+# END	
