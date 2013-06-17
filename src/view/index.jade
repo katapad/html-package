@@ -1,13 +1,18 @@
-- var stylesheet	= "css/" + projectName + ".min.css"
-- var script		= "js/" + projectName + ".min.js"
-//- include ../data/index
-include layout
-
-!!!
-html
+include util
+_path = './'
+!!! 5
+html(lang="ja")
 	head
+		meta(name="viewport", content="width=320, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		mixin headUtil('../', 'hello')
 		link(href=stylesheet, type="text/css", rel="stylesheet")
-		title= title
-	body.layout
-		+layout(title, description)
+		script(src="#{_path}js/lib/jquery-1.9.0.min.js")
 		script(src=script)
+	body
+		#wrap
+			header
+				h1 hello
+			#content
+			footer
+
+//- END

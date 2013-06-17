@@ -4,30 +4,30 @@ Gruntfile.coffee
 ###
 
 module.exports = (grunt) ->
-	name = 'tmp'
-	_csscompile = {}
+	_name        = 'build'
+	_csscompile  = {}
 	_cssminified = {}
-	_jscompile = {}
-	_jsminified = {}
+	_jscompile   = {}
+	_jsminified  = {}
 
-	jade =
-		'debug/index.html': 'debug/view/index.jade'
+	_jade =
+		'dist/index.html': 'src/view/index.jade'
 
-	_csscompile["debug/css/#{name}.css"] = ['src/stylus/blocks.styl']
-	_cssminified["deploy/css/#{name}.min.css"] = ["debug/css/#{name}.css"]
+	_csscompile["dist/css/#{_name}.css"]      = 'src/stylus/layout.styl'
+	_cssminified["dist/css/#{_name}.min.css"] = "dist/css/#{_name}.css"
 
-	_jscompile['debug/js/#{name}.js'] = ['src/coffee/**/*.coffee']
-	_jsminified["deploy/js/#{name}.min.js"] = ["debug/js/#{name}.js"]
+	_jscompile["dist/js/#{_name}.js"]      = "src/coffee/**/*.coffee"
+	_jsminified["dist/js/#{_name}.min.js"] = "dist/js/#{_name}.js"
 
 	grunt.initConfig 
 		pkg: grunt.file.readJSON 'package.json'
 		jade: 
 			compile:
-				files: jade
+				files: _jade
 				options:
 					pretty: true
 					data:
-						projectName: name
+						filename: _name
 		stylus:
 			compile:
 				files: _csscompile
@@ -38,7 +38,7 @@ module.exports = (grunt) ->
 			compile:
 				files: _jscompile
 		uglify:
-			javascript:
+			compile:
 				files: _jsminified
 		watch:
 			jade:
@@ -46,7 +46,7 @@ module.exports = (grunt) ->
 				tasks: 'jade'
 			stylus:
 				files: 'src/stylus/**/*.stylus'
-				tasks: 'stylus'
+				tasks: 'stylus cssmin'
 			coffee:
 				files: 'src/coffee/**/*.coffee'
 				tasks: 'coffee uglify'
@@ -58,10 +58,9 @@ module.exports = (grunt) ->
 		'grunt-contrib-uglify'
 		'grunt-contrib-watch'
 		'grunt-contrib-cssmin'
-	].forEach (plugin)->
+	].forEach (plugin) ->
 		grunt.loadNpmTasks(plugin)
 
-	grunt.registerTask 'default', ['jade', 'stylus', 'coffee']
-	grunt.registerTask 'deploy', ['jade', 'stylus', 'coffee', 'cssmin', 'uglify']
+	grunt.registerTask 'default', ['jade', 'stylus', 'coffee', 'cssmin', 'uglify']
 
 # END	
