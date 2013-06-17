@@ -13,11 +13,11 @@ module.exports = (grunt) ->
 	jade =
 		'debug/index.html': 'debug/view/index.jade'
 
-	_csscompile['debug/css/#{name}.css'] = 'src/stylus/blocks.styl'
-	_cssminified['deploy/css/#{name}.min.css'] = 'debug/css/#{name}.css'
+	_csscompile["debug/css/#{name}.css"] = ['src/stylus/blocks.styl']
+	_cssminified["deploy/css/#{name}.min.css"] = ["debug/css/#{name}.css"]
 
-	_jscompile['debug/js/#{name}.js'] = 'src/coffee/**/*.coffee'
-	_jsminified['deploy/js/#{name}.min.js'] = ['debug/js/#{name}.js']
+	_jscompile['debug/js/#{name}.js'] = ['src/coffee/**/*.coffee']
+	_jsminified["deploy/js/#{name}.min.js"] = ["debug/js/#{name}.js"]
 
 	grunt.initConfig 
 		pkg: grunt.file.readJSON 'package.json'
@@ -25,7 +25,7 @@ module.exports = (grunt) ->
 			compile:
 				files: jade
 				options:
-					pretty: truegit
+					pretty: true
 					data:
 						projectName: name
 		stylus:
