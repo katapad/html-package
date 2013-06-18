@@ -30,6 +30,18 @@ $ grunt watch
 $ ruby config/server.rb 
 ``` 
 
+#### test command if the sftp is be able to be connected
+
+```shellscript
+$ grunt sshexec
+``` 
+
+#### transport dist files to sftp server
+
+```shellscript
+$ grunt sftp
+``` 
+
 
 --
 
@@ -37,8 +49,7 @@ $ ruby config/server.rb
 
 ```shellscript
 - set path which debug or deploy mode   
-- run http server like as ruby webrick    
+- set setting.json ad enable to modify only the json file not Gruntfile
 - add livereload function   
-- publish as npm module this package  
 ```
 
