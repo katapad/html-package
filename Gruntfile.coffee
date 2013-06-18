@@ -4,6 +4,14 @@ Gruntfile.coffee
 ###
 
 module.exports = (grunt) ->
+	# ftp
+	_user = '***'              
+	_pass = '***'         
+	_host = '***'                   
+	_path = '***'
+	_file = '***'
+
+	# src
 	_name        = 'build'
 	_csscompile  = {}
 	_cssminified = {}
@@ -19,6 +27,7 @@ module.exports = (grunt) ->
 	_jscompile["dist/js/#{_name}.js"]      = "src/coffee/**/*.coffee"
 	_jsminified["dist/js/#{_name}.min.js"] = "dist/js/#{_name}.js"
 
+	# config 
 	grunt.initConfig 
 		pkg: grunt.file.readJSON 'package.json'
 		jade: 
@@ -50,6 +59,24 @@ module.exports = (grunt) ->
 			coffee:
 				files: 'src/coffee/**/*.coffee'
 				tasks: 'coffee uglify'
+		sshexec:
+	      test:
+	        command: 'date >'+ _path + 'date.txt',
+	        options:
+	          host: _host
+	          username: _user
+	          password: _pass
+	    sftp:
+	      test:
+	        files:
+	          _file: _file + '**/*'
+	        options:
+	          host: _host
+	          username: _user
+	          password: _pass
+	          path: _path
+	          srcBasePath: _file
+	          # createDirectories: true
 
 	plugins = [
 		'grunt-contrib-jade'
@@ -58,6 +85,7 @@ module.exports = (grunt) ->
 		'grunt-contrib-uglify'
 		'grunt-contrib-watch'
 		'grunt-contrib-cssmin'
+		'grunt-ssh'
 	].forEach (plugin) ->
 		grunt.loadNpmTasks(plugin)
 
