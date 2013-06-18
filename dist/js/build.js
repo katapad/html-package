@@ -45,6 +45,11 @@ javascript for StageSizeManager
 
 }).call(this);
 
+/*
+@author naoiwata
+*/
+
+
 (function() {
   $(function() {
     var ANDROID, IPAD, IPHONE, ua;
@@ -52,7 +57,7 @@ javascript for StageSizeManager
     IPHONE = ua.indexOf('iphone') > -1;
     IPAD = ua.indexOf('ipad') > -1;
     ANDROID = ua.indexOf('android') > -1;
-    if (IPHONE || IPAD || ANDROID) {
+    if (IPHONE || ANDROID) {
       stageSizeManager.init();
     }
   });
