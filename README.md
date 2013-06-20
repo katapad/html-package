@@ -30,7 +30,7 @@ $ grunt watch
 $ ruby config/server.rb 
 ``` 
 
-#### test command if the sftp is be able to be connected
+#### test command if the sftp can be able to be connected the host server
 
 ```shellscript
 $ grunt sshexec
