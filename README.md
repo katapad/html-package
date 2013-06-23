@@ -48,7 +48,6 @@ $ grunt sftp
 ### for next version, TO DO LISTs
 
 ```shellscript
-- create folder if there is no one <- need to early !;(
 - set path which debug or deploy mode   
 - set setting.json ad enable to modify only the json file not Gruntfile
 - add livereload function   
