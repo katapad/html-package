@@ -76,7 +76,7 @@ module.exports = (grunt) ->
             password: _pass
             path: _path
             srcBasePath: _file
-            # createDirectories: true
+            createDirectories: true
 
   plugins = [
     'grunt-contrib-jade'
