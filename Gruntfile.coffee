@@ -54,7 +54,7 @@ module.exports = (grunt) ->
         files: 'src/view/**/*.jade'
         tasks: 'jade'
       stylus:
-        files: 'src/stylus/**/*.stylus'
+        files: 'src/stylus/*.stylus'
         tasks: 'stylus cssmin'
       coffee:
         files: 'src/coffee/**/*.coffee'
