@@ -6,7 +6,7 @@ require 'webrick'
 server = WEBrick::HTTPServer.new({
 	:DocumentRoot  => "./", 
 	:Port => 8080, 
-	:NondisclosureName => [ "*.", ".git"] 
+	:NondisclosureName => ".*" 
 })
 
 ['INT', 'TERM'].each {
