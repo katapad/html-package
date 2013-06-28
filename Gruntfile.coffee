@@ -53,12 +53,18 @@ module.exports = (grunt) ->
       jade:
         files: 'src/view/**/*.jade'
         tasks: 'jade'
+        options:
+          livereload: true
       stylus:
-        files: 'src/stylus/**/*.stylus'
+        files: 'src/stylus/**/*.styl'
         tasks: ['stylus', 'cssmin']
+        options:
+          livereload: true
       coffee:
         files: 'src/coffee/**/*.coffee'
         tasks: ['coffee', 'uglify']
+        options:
+          livereload: true
     sshexec:
         test:
           command: 'date >'+ _path + 'date.txt',
