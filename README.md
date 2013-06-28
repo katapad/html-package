@@ -5,7 +5,9 @@
 ```shellscript
 $ sh config/node.sh
 ```
-
+ 
+ 
+ 
 #### install node modules
 
 ```shellscript
@@ -18,7 +20,9 @@ $ sh config/install.sh
 $ grunt
 ```
 
-#### auto compile files when the file has saved
+#### auto compile files when the file has saved, and browser reloaded when file has saved.  
+
+- install livereload extension and run : [Google Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)  
 
 ```shellscript
 $ grunt watch
@@ -48,8 +52,7 @@ $ grunt sftp
 ### for next version, TO DO LISTs
 
 ```shellscript
-- set path which debug or deploy mode   
-- set setting.json ad enable to modify only the json file not Gruntfile
-- add livereload function   
+- set paths which debug or deploy mode     
+- set like a setting.json as enable us to modify only this json file not Gruntfile  
 ```
 
