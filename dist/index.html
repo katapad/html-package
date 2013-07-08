@@ -18,8 +18,26 @@
       <header>
         <h1>html-package ver0.0.6</h1>
       </header>
-      <div id="content"></div>
-      <footer></footer>
+      <div id="content">
+        <h2>how to use</h2>
+        <p>install node if your env doesn't have</p>
+        <pre>$ sh config/node.sh</pre>
+        <p>install node modules</p>
+        <pre>$ sh config/install.sh</pre>
+        <p>compile files</p>
+        <pre>$ grunt</pre>
+        <p>auto compile files when the file has saved, and browser reloaded when file has saved</p>
+        <pre>$ grunt watch</pre>
+        <p>run web server on webrick and you can see 'http://localhost:8080/dist/' on dist/index.html file</p>
+        <pre>$ ruby config/server.rb</pre>
+        <p>test command if the sftp can be able to be connected the host server</p>
+        <pre>$ grunt sshexec</pre>
+        <p>transport dist files to sftp server</p>
+        <pre>$ grunt sftp</pre>
+      </div>
+      <footer>
+        <p>version 0.0.6</p>
+      </footer>
     </div>
   </body>
 </html>

@@ -22,7 +22,7 @@ class StageSizeManager
     return
 
   setWindowRatio: (given_width) ->
-    ua      = window.navigator.userAgent.toLowerCase();
+    ua      = window.navigator.userAgent.toLowerCase()
     iphone  = ua.indexOf('iphone')  > -1
     ipad    = ua.indexOf( 'ipad' )  > -1
     android = ua.indexOf('android') > -1
@@ -34,8 +34,6 @@ class StageSizeManager
     if (iphone || ipad || android)
       if @window_width > @window_height
         @window_width = @device_width
-      else
-        @window_width = @max_width
     else 
       @window_width = @max_width     
     
@@ -44,9 +42,7 @@ class StageSizeManager
 
     window.ratio = ratio = @window_width / given_width
     body.style.fontSize = ratio + 'em' 
-    # body.style.margin   = '0 auto'
-    # body.style.width    = given_width / 10 + 'em'
-    console.log "ratio: " + ratio
+    body.style.margin   = '0 auto'
     return
 
 window.stageSizeManager = new StageSizeManager()

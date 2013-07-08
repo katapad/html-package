@@ -38,8 +38,6 @@
       if (iphone || ipad || android) {
         if (this.window_width > this.window_height) {
           this.window_width = this.device_width;
-        } else {
-          this.window_width = this.max_width;
         }
       } else {
         this.window_width = this.max_width;
@@ -49,7 +47,7 @@
       }
       window.ratio = ratio = this.window_width / given_width;
       body.style.fontSize = ratio + 'em';
-      console.log("ratio: " + ratio);
+      body.style.margin = '0 auto';
     };
 
     return StageSizeManager;

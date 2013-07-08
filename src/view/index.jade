@@ -13,6 +13,22 @@ html(lang="ja")
 			header
 				h1 html-package ver0.0.6
 			#content
+				h2 how to use
+				p install node if your env doesn't have
+				pre $ sh config/node.sh
+				p install node modules
+				pre $ sh config/install.sh
+				p compile files
+				pre $ grunt
+				p auto compile files when the file has saved, and browser reloaded when file has saved
+				pre $ grunt watch
+				p run web server on webrick and you can see 'http://localhost:8080/dist/' on dist/index.html file
+				pre $ ruby config/server.rb
+				p test command if the sftp can be able to be connected the host server
+				pre $ grunt sshexec
+				p transport dist files to sftp server
+				pre $ grunt sftp
 			footer
+				p version 0.0.6
 
 //- END
