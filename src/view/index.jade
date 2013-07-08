@@ -3,7 +3,7 @@ _path = './'
 !!! 5
 html(lang="ja")
 	head
-		meta(name="viewport", content="width=320, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		meta(name="viewport", content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no")
 		mixin headUtil('../', 'hello')
 		link(href=stylesheet, type="text/css", rel="stylesheet")
 		script(src="#{_path}js/lib/jquery-1.9.0.min.js")
@@ -11,7 +11,7 @@ html(lang="ja")
 	body
 		#wrap
 			header
-				h1 hello
+				h1 html-package ver0.0.6
 			#content
 			footer
 

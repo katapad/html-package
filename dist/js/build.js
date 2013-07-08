@@ -1,6 +1,7 @@
-/*
-@author naoiwata
-javascript for StageSizeManager
+/* -----------------------------------
+ * @author naoiwata
+ * javascript for StageSizeManager
+-----------------------------------
 */
 
 
@@ -10,31 +11,45 @@ javascript for StageSizeManager
   StageSizeManager = (function() {
     function StageSizeManager(name) {
       this.name = name;
-      this.MAX_WIDTH = 640;
+      this.max_width = 640;
+      this.device_width = screen.width;
+      this.device_height = screen.height;
+      this.window_width = window.innerWidth;
+      this.window_height = window.innerHeight;
     }
 
-    StageSizeManager.prototype.init = function() {
+    StageSizeManager.prototype.init = function(given_width) {
       setTimeout(function() {
-        return window.scrollTo(0, 1);
+        window.scrollTo(0, 1);
       }, 100);
-      this.onResize();
-      return window.addEventListener('resize', function() {
-        return stageSizeManager.onResize();
-      });
+      this.setWindowRatio(given_width);
     };
 
-    StageSizeManager.prototype.onResize = function(e) {
-      var BODY, ORIENTATION, WINDOW_HEIGHT, WINDOW_WIDTH;
-      BODY = document.body;
-      WINDOW_WIDTH = window.innerWidth;
-      WINDOW_HEIGHT = window.innerHeight;
-      ORIENTATION = window.orientation;
-      if (WINDOW_WIDTH > this.MAX_WIDTH) {
-        BODY.style.width = this.MAX_WIDTH + 'px';
-        return BODY.style.margin = '0 auto';
-      } else {
-        return BODY.style.zoom = WINDOW_WIDTH / this.MAX_WIDTH;
+    StageSizeManager.prototype.setWindowRatio = function(given_width) {
+      var android, body, ipad, iphone, ratio, ua;
+      ua = window.navigator.userAgent.toLowerCase();
+      iphone = ua.indexOf('iphone') > -1;
+      ipad = ua.indexOf('ipad') > -1;
+      android = ua.indexOf('android') > -1;
+      body = document.body;
+      if (this.device_width > this.device_height) {
+        this.device_width = this.device_height;
       }
+      if (iphone || ipad || android) {
+        if (this.window_width > this.window_height) {
+          this.window_width = this.device_width;
+        } else {
+          this.window_width = this.max_width;
+        }
+      } else {
+        this.window_width = this.max_width;
+      }
+      if (this.window_width > this.max_width) {
+        this.window_width = this.max_width;
+      }
+      window.ratio = ratio = this.window_width / given_width;
+      body.style.fontSize = ratio + 'em';
+      console.log("ratio: " + ratio);
     };
 
     return StageSizeManager;
@@ -45,21 +60,15 @@ javascript for StageSizeManager
 
 }).call(this);
 
-/*
-@author naoiwata
+/* -----------------------------------
+ * @author naoiwata
+-----------------------------------
 */
 
 
 (function() {
   $(function() {
-    var ANDROID, IPAD, IPHONE, ua;
-    ua = window.navigator.userAgent.toLowerCase();
-    IPHONE = ua.indexOf('iphone') > -1;
-    IPAD = ua.indexOf('ipad') > -1;
-    ANDROID = ua.indexOf('android') > -1;
-    if (IPHONE || ANDROID) {
-      stageSizeManager.init();
-    }
+    stageSizeManager.init(480);
   });
 
 }).call(this);
