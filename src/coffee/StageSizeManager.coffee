@@ -12,19 +12,20 @@ class StageSizeManager
     @window_width  = window.innerWidth
     @window_height = window.innerHeight
 
-  init: (given_width) ->
+  init: (domId, given_width) ->
     setTimeout ->
       window.scrollTo(0, 1)
       return
     , 100
 
-    @setWindowRatio(given_width) 
+    @setWindowRatio(domId, given_width) 
     return
 
-  setWindowRatio: (given_width) ->
+  setWindowRatio: (domId, given_width) ->
     ua      = window.navigator.userAgent.toLowerCase()
     iphone  = ua.indexOf('iphone')  > -1
     ipad    = ua.indexOf( 'ipad' )  > -1
+    ipod    = ua.indexOf( 'ipod' )  > -1
     android = ua.indexOf('android') > -1
     body    = document.body
 
@@ -41,8 +42,9 @@ class StageSizeManager
       @window_width = @max_width
 
     window.ratio = ratio = @window_width / given_width
-    body.style.fontSize = ratio + 'em' 
-    body.style.margin   = '0 auto'
+    _dom = document.getElementById(domId)
+    _dom.style.zoom   = ratio
+    _dom.style.margin = '0 auto'
     return
 
 window.stageSizeManager = new StageSizeManager()

@@ -3,7 +3,7 @@ _path = './'
 !!! 5
 html(lang="ja")
 	head
-		meta(name="viewport", content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no")
+		meta(name="viewport", content="target-densitydpi=device-dpi, width=320, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no")
 		mixin headUtil('../', 'hello')
 		link(href=stylesheet, type="text/css", rel="stylesheet")
 		script(src="#{_path}js/lib/jquery-1.9.0.min.js")
@@ -13,7 +13,6 @@ html(lang="ja")
 			header
 				h1 html-package ver0.0.6
 			#content
-				h2 how to use
 				p install node if your env doesn't have
 				pre $ sh config/node.sh
 				p install node modules

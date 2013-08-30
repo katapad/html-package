@@ -3,7 +3,7 @@
 ----------------------------------- ###
 
 $ ->
-  stageSizeManager.init(480)
+  stageSizeManager.init('wrap', 480)
   return
 
 # END
