@@ -18,18 +18,19 @@
       this.window_height = window.innerHeight;
     }
 
-    StageSizeManager.prototype.init = function(given_width) {
+    StageSizeManager.prototype.init = function(domId, given_width) {
       setTimeout(function() {
         window.scrollTo(0, 1);
       }, 100);
-      this.setWindowRatio(given_width);
+      this.setWindowRatio(domId, given_width);
     };
 
-    StageSizeManager.prototype.setWindowRatio = function(given_width) {
-      var android, body, ipad, iphone, ratio, ua;
+    StageSizeManager.prototype.setWindowRatio = function(domId, given_width) {
+      var android, body, ipad, iphone, ipod, ratio, ua, _dom;
       ua = window.navigator.userAgent.toLowerCase();
       iphone = ua.indexOf('iphone') > -1;
       ipad = ua.indexOf('ipad') > -1;
+      ipod = ua.indexOf('ipod') > -1;
       android = ua.indexOf('android') > -1;
       body = document.body;
       if (this.device_width > this.device_height) {
@@ -46,8 +47,9 @@
         this.window_width = this.max_width;
       }
       window.ratio = ratio = this.window_width / given_width;
-      body.style.fontSize = ratio + 'em';
-      body.style.margin = '0 auto';
+      _dom = document.getElementById(domId);
+      _dom.style.zoom = ratio;
+      _dom.style.margin = '0 auto';
     };
 
     return StageSizeManager;
@@ -66,7 +68,7 @@
 
 (function() {
   $(function() {
-    stageSizeManager.init(480);
+    stageSizeManager.init('wrap', 480);
   });
 
 }).call(this);

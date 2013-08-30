@@ -9,7 +9,7 @@ module.exports = (grunt) ->
   _pass = '***'         
   _host = '***'                   
   _path = '***'
-  _file = '***'
+  _file = 'dist/'
 
   # src
   _name        = 'build'
@@ -18,14 +18,27 @@ module.exports = (grunt) ->
   _jscompile   = {}
   _jsminified  = {}
 
+  # date
+  _date = dateformat("yyyy-mm-dd_HH-MM-ss")
+
   _jade =
     'dist/index.html': 'src/view/index.jade'
 
-  _csscompile["dist/css/#{_name}.css"]      = 'src/stylus/layout.styl'
+  _csscompile["dist/css/#{_name}.css"] = [
+    'src/stylus/layout.styl'
+  ]
+
   _cssminified["dist/css/#{_name}.min.css"] = "dist/css/#{_name}.css"
 
-  _jscompile["dist/js/#{_name}.js"]      = "src/coffee/**/*.coffee"
-  _jsminified["dist/js/#{_name}.min.js"] = "dist/js/#{_name}.js"
+  _jscompile["dist/js/#{_name}.js"] = [
+    "src/coffee/layout.coffee"
+    "src/coffee/util/StageSizeManager.coffee"
+  ]
+
+  _jsminified["dist/js/#{_name}.min.js"] = [
+    "dist/js/lib/jquery-1.9.0.min.js"
+    "dist/js/#{_name}.js"
+  ]
 
   # config 
   grunt.initConfig 
