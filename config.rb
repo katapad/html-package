@@ -2,6 +2,10 @@
 # Compass
 ###
 
+# Susy grids in Compass
+# First: gem install susy --pre
+# require 'susy'
+
 # Change Compass configuration
 # compass_config do |config|
 #   config.output_style = :compact
@@ -10,6 +14,16 @@
 ###
 # Page options, layouts, aliases and proxies
 ###
+
+# Slim settings
+# Set slim-lang output style
+Slim::Engine.set_default_options :pretty => true
+# Set Shortcut
+Slim::Engine.set_default_options :shortcut => {
+  '#' => {:tag => 'div', :attr => 'id'},
+  '.' => {:tag => 'div', :attr => 'class'},
+  '&' => {:tag => 'input', :attr => 'type'}
+}
 
 # Per-page layout changes:
 #
@@ -24,9 +38,10 @@
 #   page "/admin/*"
 # end
 
-# Proxy pages (http://middlemanapp.com/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
-#  :which_fake_page => "Rendering a fake page with a local variable" }
+# Proxy (fake) files
+# page "/this-page-has-no-template.html", :proxy => "/template-file.html" do
+#   @which_fake_page = "Rendering a fake page with a variable"
+# end
 
 ###
 # Helpers
@@ -34,9 +49,6 @@
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
-
-# Reload the browser automatically whenever files change
-# activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -49,7 +61,11 @@ set :css_dir, 'css'
 
 set :js_dir, 'js'
 
-set :images_dir, 'img'
+set :images_dir, 'images'
+
+# livereload your browser, Firefox/Google Chrome/Safari
+activate :livereload
+
 
 # Build-specific configuration
 configure :build do
@@ -60,10 +76,15 @@ configure :build do
   # activate :minify_javascript
 
   # Enable cache buster
-  # activate :asset_hash
+  # activate :cache_buster
 
   # Use relative URLs
   # activate :relative_assets
+
+  # Compress PNGs after build
+  # First: gem install middleman-smusher
+  # require "middleman-smusher"
+  # activate :smusher
 
   # Or use a different image path
   # set :http_path, "/Content/images/"
