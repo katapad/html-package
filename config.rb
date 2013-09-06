@@ -66,6 +66,8 @@ set :images_dir, 'images'
 # livereload your browser, Firefox/Google Chrome/Safari
 activate :livereload
 
+# bower path setting
+set :bower_dir, '../vendor/bower'
 
 # Build-specific configuration
 configure :build do
