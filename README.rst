@@ -1,8 +1,8 @@
 html-package
 =============
 
-enable to develop static html pages
-------------------------------------
+html package for developing a static html pages easily
+-------------------------------------------------------
 
 author naowata, version 0.0.1
 
@@ -51,3 +51,12 @@ deploy
 ::
   
   bundle exec middleman build
+  
+  
+for next versions
+------------------
+
+- set optimized image files compressed
+- set file path on debug and deploy
+- transport file by using ftp or sftp
+- add compass develop env
