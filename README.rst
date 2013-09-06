@@ -6,6 +6,17 @@ enable to develop static html pages
 
 author naowata, version 0.0.1
 
+versions
+----------------------------
+
+
+::
+
+  ruby -v # 2.0.0p0 
+  gem -v # 2.0.3
+  node -v # v0.10.10
+
+
 install and set envrioments
 ----------------------------
 
@@ -13,7 +24,7 @@ install and set envrioments
 
   sudo gem install middleman
   sudo npm install bower
-  
+
 
 how to use
 -----------
