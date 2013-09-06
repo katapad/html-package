@@ -23,7 +23,7 @@ install and set envrioments
 ::
 
   sudo gem install middleman
-  sudo npm install bower
+  sudo npm install bower -g
 
 
 how to use
@@ -35,8 +35,7 @@ how to use
   git init
   git pull git://github.com/naoiwata/html-package.git
   bundle install --path vendor/bundler
-  # after set js library on bower.json
-  bower install
+  bower install # after setting js library on bower.json
   
 
 run web server
