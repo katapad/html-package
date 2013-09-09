@@ -1,10 +1,12 @@
 html-package
 =============
 
-html package for developing a static html pages easily
+this enables to develop a static html pages easily
 -------------------------------------------------------
 
-author naowata, version 0.0.1
+| @author naowata
+| @version 0.0.1
+| @last-update 2013/9/9
 
 versions
 ----------------------------
