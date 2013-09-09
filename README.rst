@@ -1,8 +1,8 @@
 html-package
 =============
 
-enable to develop static html pages
-------------------------------------
+html package for developing a static html pages easily
+-------------------------------------------------------
 
 author naowata, version 0.0.1
 
@@ -23,7 +23,7 @@ install and set envrioments
 ::
 
   sudo gem install middleman
-  sudo npm install bower
+  sudo npm install bower -g
 
 
 how to use
@@ -35,8 +35,7 @@ how to use
   git init
   git pull git://github.com/naoiwata/html-package.git
   bundle install --path vendor/bundler
-  # after set js library on bower.json
-  bower install
+  bower install # after setting js library on bower.json
   
 
 run web server
@@ -52,3 +51,12 @@ deploy
 ::
   
   bundle exec middleman build
+  
+  
+for next versions
+------------------
+
+- set optimized image files compressed
+- set file path on debug and deploy
+- transport file by using ftp or sftp
+- add compass develop env
