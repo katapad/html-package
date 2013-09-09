@@ -34,8 +34,9 @@ how to use
   mkdir YOUR_PROJECTS && cd YOUR_PROJECTS
   git init
   git pull git://github.com/naoiwata/html-package.git
-  bundle install --path vendor/bundler
-  bower install # after setting js library on bower.json
+  bundle install --path vendor/bundle
+  # after set js library on bower.json
+  bower install
   
 
 run web server
