@@ -57,11 +57,10 @@ Slim::Engine.set_default_options :shortcut => {
 #   end
 # end
 
+# set file names
 set :css_dir, 'css'
-
 set :js_dir, 'js'
-
-set :images_dir, 'images'
+set :images_dir, 'img'
 
 # livereload your browser, Firefox/Google Chrome/Safari
 activate :livereload

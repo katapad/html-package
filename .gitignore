@@ -17,7 +17,7 @@
 .DS_Store
 
 # Ignore Bundle Libraries
-/vendor/bundler
+/vendor/bundle
 
 # Ignore Gemfile.lock
 /Gemfile.lock
