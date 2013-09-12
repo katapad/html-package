@@ -21,4 +21,6 @@ html
 
   body class="#{page_classes}"
     #wrap
+        == partial 'layouts/header'
         == yield
+        == partial 'layouts/footer'
