@@ -53,7 +53,7 @@ run web server
 u can use liverealod tool -> https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
 
 
-deploy
+build
 --------
 
 ::
