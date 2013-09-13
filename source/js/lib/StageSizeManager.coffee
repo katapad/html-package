@@ -19,7 +19,7 @@ class StageSizeManager
       @setWindowRatio(domId, given_width) 
       window.scrollTo(0, 1)
       return
-    , 1000
+    , 100
     return
 
   setWindowRatio: (domId, given_width) ->
