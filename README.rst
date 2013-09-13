@@ -6,7 +6,7 @@ this enables to develop a static html pages easily
 
 | @author naowata
 | @version 0.0.1
-| @last-update 2013/9/9
+| @last-update 2013/9/13
 
 versions
 ----------------------------
@@ -19,12 +19,13 @@ versions
   node -v # v0.10.10
 
 
-install and set envrioments
-----------------------------
+install these modules if u hasnt
+----------------------------------
 
 ::
 
   sudo gem install middleman
+  sudo gem install middleman-smusher
   sudo npm install bower -g
 
 
