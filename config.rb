@@ -84,9 +84,34 @@ configure :build do
 
   # Compress PNGs after build
   # First: gem install middleman-smusher
-  require "middleman-smusher"
-  activate :smusher
+  # require "middleman-smusher"
+  # activate :smusher
 
   # Or use a different image path
   # set :http_path, "/Content/images/"
+end
+
+# Deploy-specific configuration
+activate :deploy do |deploy|
+  deploy.build_before = true # default: false
+
+  # git
+  # deploy.method = :git
+  # Optional Settings
+  # deploy.remote = "custom-remote" # remote name or git url, default: origin
+  # deploy.branch = "custom-branch" # default: gh-pages
+
+  # ftp
+  # deploy.method   = :ftp
+  # deploy.host     = "ftp.example.com"
+  # deploy.user     = "tvaughan"
+  # deploy.password = "secret"
+  # deploy.path     = "/srv/www/site"
+
+  # sftp
+  deploy.method   = :sftp
+  # deploy.host     = "ftp.example.com"
+  # deploy.user     = "tvaughan"
+  # deploy.password = "secret"
+  # deploy.path     = "/srv/www/site"
 end
