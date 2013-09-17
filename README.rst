@@ -60,6 +60,16 @@ build
   
   bundle exec middleman build
   
+
+deploy
+--------
+
+add git or ftp, sftp information to to config.rb
+
+::
+  
+  bundle exec middleman deploy
+  
   
 for next versions
 ------------------
