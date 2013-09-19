@@ -14,8 +14,8 @@ class StageSizeManager
 
   init: (domId, given_width) ->
     setTimeout =>
-      @device_width  = screen.width
-      @device_height = screen.height
+      @device_width  = window.innerWidth # screen.width
+      @device_height = window.innerHeight # screen.height
       @setWindowRatio(domId, given_width) 
       window.scrollTo(0, 1)
       return
