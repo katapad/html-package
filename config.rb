@@ -48,7 +48,7 @@ Slim::Engine.set_default_options :shortcut => {
 ###
 
 # Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
+activate :automatic_image_sizes
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -77,7 +77,7 @@ configure :build do
   activate :minify_javascript
 
   # Enable cache buster
-  # activate :cache_buster
+  activate :cache_buster
 
   # Use relative URLs
   activate :relative_assets
@@ -109,7 +109,7 @@ activate :deploy do |deploy|
   # deploy.path     = "/srv/www/site"
 
   # sftp
-  deploy.method   = :sftp
+  # deploy.method   = :sftp
   # deploy.host     = "ftp.example.com"
   # deploy.user     = "tvaughan"
   # deploy.password = "secret"
