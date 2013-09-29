@@ -2,7 +2,7 @@
   "name": "my_app",
   "version": "0.0.1",
   "dependencies": {
-    "jquery": "< 1.9.1",
-    "angularjs-bower": "git://github.com/mjaric/angularjs-bower.git"
+    "jquery": "1.9.0",
+    "angularjs-bower": "*"
   }
 }
